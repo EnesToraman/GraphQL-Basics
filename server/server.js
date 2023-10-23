@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 
 // Replace with your Mongo Atlas URI
-const MONGO_URI = 'mongodb+srv://enestoraman:n5Sib22Tb9YQxRsu@cluster0.all5zbl.mongodb.net/lyrical?retryWrites=true&w=majority';
+const MONGO_URI = process.env.MONGO_URI;
 if (!MONGO_URI) {
   throw new Error('You must provide a Mongo Atlas URI');
 }
