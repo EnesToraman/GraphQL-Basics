@@ -36,6 +36,7 @@ export const SongCreate = () => {
       <form onSubmit={handleSubmit}>
         <label>Song Title:</label>
         <input
+          type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Title"
