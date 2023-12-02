@@ -1,18 +1,11 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import user from '@testing-library/user-event'
 import { SongCreate } from "./SongCreate";
-import { MemoryRouter } from "react-router-dom";
-import { MockedProvider } from "@apollo/client/testing";
 import { Songlist } from "./Songlist";
+import { renderWithProvider } from "../test-components/renderWithProvider";
 
 test('Link to "go to songs" navigates', () => {
-  render(
-    <MockedProvider>
-      <MemoryRouter>
-        <SongCreate />
-      </MemoryRouter>
-    </MockedProvider>
-  )
+  renderWithProvider(<SongCreate />)
   const link = screen.getByRole('link', {
     name: /songs/i
   })
@@ -21,13 +14,11 @@ test('Link to "go to songs" navigates', () => {
 })
 
 test('Registering a new song works', async () => {
-  render(
-    <MockedProvider>
-      <MemoryRouter>
-        <Songlist />
-        <SongCreate />
-      </MemoryRouter>
-    </MockedProvider>
+  renderWithProvider(
+    <>
+      <Songlist />
+      <SongCreate />
+    </>
   )
   const titleInput = screen.getByRole('textbox')
   user.type(titleInput, 'New Song Title{enter}')
