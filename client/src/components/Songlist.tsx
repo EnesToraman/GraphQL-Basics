@@ -18,6 +18,7 @@ export const Songlist = () => {
 
   return (
     <div>
+      <h2>Songs</h2>
       <ul>
         {data?.songs?.map((song: { id: string, title: string }) => (
           <div>

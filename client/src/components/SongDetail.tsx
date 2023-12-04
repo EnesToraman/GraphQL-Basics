@@ -47,9 +47,9 @@ export const SongDetail = () => {
       <ul>
         {data?.song?.lyrics?.map((lyric: { id: string, content: string, likes: number }) => (
           <li key={lyric.id}>
-            {lyric.content}
+            <p role="lyrics">{lyric.content}</p>
             <button onClick={() => handleLike(lyric.id, lyric.likes)}>Like</button>
-            {lyric.likes} Likes!
+            <span className="likes">{lyric.likes} Likes!</span>
           </li>
         ))}
       </ul>

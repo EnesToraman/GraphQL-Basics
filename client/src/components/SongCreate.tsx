@@ -1,16 +1,8 @@
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { FormEvent, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 import { GET_SONGS } from "../queries/GetSongs";
-
-const CREATE_SONG = gql`
-  mutation AddSong($title: String){
-    addSong(title: $title) {
-      id
-      title
-    }
-  }
-`;
+import { CREATE_SONG } from "../mutations/CreateSong";
 
 export const SongCreate = () => {
   const [title, setTitle] = useState('');
